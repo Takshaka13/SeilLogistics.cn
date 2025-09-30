@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOM - Your E-com agent in China</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 40px;
+            background: #5cb85c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-size: 18px;
+            font-weight: 400;
+            color: #6c757d;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn-contact {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        
+        .btn-cta {
+            padding: 12px 30px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-cta:hover {
+            background: #4cae4c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ddd"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .btn-hero {
+            padding: 14px 32px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hero-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .hero-description {
+            font-size: 20px;
+            margin-top: 40px;
+            opacity: 0.95;
+        }
+        
+        /* Door to Door Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .section-gray {
+            background: #f8f9fa;
+        }
+        
+        /* Delivery Options */
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .delivery-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .delivery-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .delivery-icon {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+        
+        .delivery-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .delivery-time {
+            font-size: 18px;
+            color: #6c757d;
+        }
+        
+        /* Advantages */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .advantage-item {
+            padding-left: 20px;
+            border-left: 4px solid #5cb85c;
+        }
+        
+        .advantage-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .advantage-item p {
+            color: #6c757d;
+            line-height: 1.8;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial-text {
+            color: #6c757d;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #e9ecef;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        /* Why Choose Section */
+        .why-choose {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        
+        .why-image {
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 12px;
+        }
+        
+        .why-list {
+            list-style: none;
+        }
+        
+        .why-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #495057;
+            font-size: 18px;
+        }
+        
+        .why-list li:before {
+            content: "- ";
+            color: #5cb85c;
+            font-weight: bold;
+        }
+        
+        /* CTA Button */
+        .cta-center {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .btn-large {
+            padding: 18px 50px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-large:hover {
+            background: #4cae4c;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: white;
+            padding: 40px 0;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .footer-links a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #5cb85c;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .why-choose {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">ECOM</div>
+                    <span class="tagline">Your E-com agent in China</span>
+                </div>
+                <div class="header-buttons">
+                    <button class="btn-contact">CONTACTS 📞</button>
+                    <button class="btn-cta">REQUEST A CALL 📞</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shipments to Amazon warehouses around the world</h1>
+                <div class="hero-buttons">
+                    <button class="btn-hero">ADVANTAGES</button>
+                    <button class="btn-hero btn-hero-outline">DELIVERY OPTIONS</button>
+                </div>
+                <p class="hero-description">
+                    Our services are specifically designed to meet the demands of E-commerce entrepreneurs and Amazon sellers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Door to Door Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Door to Door shipping from China</h2>
+            
+            <div class="why-choose">
+                <div class="why-image"></div>
+                <div>
+                    <ul class="why-list">
+                        <li>Full responsibility for customs clearance procedure.</li>
+                        <li>Choosing the best possible delivery method.</li>
+                        <li>Cooperation with the chosen transport company on your behalf.</li>
+                        <li>Supervising all transportation stages.</li>
+                        <li>Solving all the issues that may arise during the shipment.</li>
+                        <li>Checking the shipment for compliance with Amazon FBA requirements</li>
+                    </ul>
+                    <div class="cta-center">
+                        <button class="btn-large">SEND MY GOODS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Options -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Delivery options</h2>
+            <p style="font-size: 18px; color: #6c757d;">
+                Transit times to an Amazon warehouse in the US depend on the destination city, nature and quantity of the goods.
+            </p>
+            
+            <div class="delivery-grid">
+                <div class="delivery-card">
+                    <div class="delivery-icon">📦</div>
+                    <h3>Express</h3>
+                    <p class="delivery-time">2 to 10 working days.</p>
+                </div>
+                <div class="delivery-card">
+                    <div class="delivery-icon">✈️</div>
+                    <h3>Avia cargo</h3>
+                    <p class="delivery-time">10 to 15 working days.</p>
+                </div>
+                <div class="delivery-card">
+                    <div class="delivery-icon">🚢</div>
+                    <h3>Sea transport</h3>
+                    <p class="delivery-time">20 to 40 working days.</p>
+                </div>
+                <div class="delivery-card">
+                    <div class="delivery-icon">🚚</div>
+                    <h3>Special line</h3>
+                    <p class="delivery-time">up to 15 working days.</p>
+                </div>
+            </div>
+            
+            <div class="cta-center">
+                <button class="btn-large">GET FREE QUOTES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our advantages</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>Choosing the best delivery method</h3>
+                    <p>We develop the best delivery scheme in terms of transit time/shipping costs according to your requirements. It is also possible to combine several shipping methods to optimize delivery times and lower the costs (express, avia cargo, sea transport). It also allows to control the inventory replenishment rates at Amazon warehouses and to optimize storage costs.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Checking the shipment for compliance with Amazon FBA requirements</h3>
+                    <p>We ensure the presence of all the necessary labels, barcodes and check the dimensions, weight and quality of the cartons.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Supervising all transportation stages from the pickup point to the Amazon warehouse destination</h3>
+                    <p>Our managers provide all the information about the current status of your shipment and give you early warning in case of any delays. We assume full responsibility for customs clearance and negotiations with the transport company in case of damage or loss of the goods.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Cargo insurance</h3>
+                    <p>In case the total value of the shipment is considerably higher than the standard reimbursement rates from the transport companies (DHL, UPS, Fedex), we provide additional insurance against damage or loss of the goods.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>IT system to process the requests for logistics services</h3>
+                    <p>All the key information about the shipment route, tariffs and the required customs documents is stored in our IT system. It grants much higher level of control over the transportation process. Also, the system provides relevant data about tariff rates of different transport companies.</p>
+                </div>
+            </div>
+            
+            <div class="cta-center">
+                <button class="btn-large">GET FREE QUOTES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Why choose us?</h2>
+            
+            <div class="why-choose">
+                <div class="why-image"></div>
+                <div>
+                    <ul class="why-list">
+                        <li>Providing complete cost estimates before the goods are shipped.</li>
+                        <li>Pickup from supplier's warehouse.</li>
+                        <li>Freight consolidation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">What clients say about us</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        I used Ecom.care help for both the inspection and logistics to get our shipment delivered. Very impressed, much better than my previous experiences with other companies (I previously used large Chinese-based companies). With Ecom.care you actually get to talk to an intelligent, professional and reasonable human being. They were able to accommodate our special requests for both the inspection and delivery, I am very satisfied with their services, would use again.
+                    </p>
+                    <span class="testimonial-author">Olia Kerzhner</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Super professional service! They did a fantastic job and helped me with my first Amazon shipment Will absolutely do business with them again.
+                    </p>
+                    <span class="testimonial-author">Samuel Nord</span>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        I have been using Ecom.care logistics services since 2017. No problems whatsoever. I always get their full support in any tricky or complicated situation. I strongly recommend
+                    </p>
+                    <span class="testimonial-author">Tyler Shawn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon" style="width: 60px; height: 30px; font-size: 14px;">ECOM</div>
+                    <span>Ecom.care</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">TERMS OF USE</a>
+                    <a href="#">PRIVACY POLICY</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
